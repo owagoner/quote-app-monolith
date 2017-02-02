@@ -48,10 +48,36 @@ public class SeedData {
                 "I think that only daring speculation can lead us further and not accumulation of facts.", 
                 "https://en.wikiquote.org/wiki/Albert_Einstein", 
                 a3);
+        //Quote q4 = new Quote(
+        //        "Look deep into nature, and then you will understand everything better.", 
+        //        "https://www.brainyquotes.com/quotes/authors/a/albert_einstein.html", 
+        //        a3);
+        //Quote q5 = new Quote(
+        //        "Try not to become a man of success, but rather try to become a man of value.", 
+        //        "https://www.brainyquotes.com/quotes/authors/a/albert_einstein.html", 
+        //        a3);
+        //Quote q6 = new Quote(
+        //       "Whoever is careless with the truth is mall matters cannot be trusted with important matters.", 
+        //        "https://www.brainyquotes.com/quotes/authors/a/albert_einstein.html", 
+        //        a3);
+        //Quote q7 = new Quote(
+        //        "I love deadlines. I like the whooshing sound they make as they fly by.", 
+        //        "https://www.brainyquotes.com/quotes/authors/d/douglas_adams.html", 
+        //        a1);
+        //Quote q8 = new Quote(
+        //        "To give a real service you must add something which cannot be bought or measured with money, and that is sincerity and integrity.", 
+        //        "https://www.brainyquotes.com/quotes/authors/d/douglas_adams.html", 
+        //        a1);
+        
         
         quoteService.save(q1);
         quoteService.save(q2);
         quoteService.save(q3);
+        //quoteService.save(q4);
+        //quoteService.save(q5);
+        //quoteService.save(q6);
+        //quoteService.save(q7);
+        //quoteService.save(q8);
         
         log.info("Quoates found with findAll():");
         log.info("-------------------------------");
