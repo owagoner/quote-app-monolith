@@ -15,47 +15,54 @@ import edu.cmu.mis.iccfb.model.Author;
 import edu.cmu.mis.iccfb.model.Quote;
 import edu.cmu.mis.iccfb.service.AuthorService;
 import edu.cmu.mis.iccfb.service.QuoteService;
+
 //Test 2
 @RestController
 public class QuoteController {
-    
-    @Autowired
-    private QuoteService quoteService;
-    
-    @Autowired
-    private AuthorService authorService;
-    
-    @RequestMapping("/api/quote/random")
-    public Quote random() {
-        return quoteService.randomQuote();
-    }
-    
-    @RequestMapping(value="/api/quote/author")
-    public ArrayList<Quote> author(@RequestParam("id") int id) {
-        return quoteService.authorQuotes(id);
-    }
-    
-    @RequestMapping(value = "/api/quote", method = RequestMethod.POST)
-    public void saveQuote(@RequestBody Quote quote) {
-        System.out.println(quote);
-        
-        Author a = authorService.findByName(quote.getAuthor().getName());
-        
-        if (a == null) {
-            System.out.println("Saving author");
-            authorService.save(quote.getAuthor());
-        }
-        
-        System.out.println("Saving quote");
-        quoteService.save(quote);
-    }
-    
-    
-    public Quote fallback() {
-        Quote q = new Quote();
-        Author a = new Author("Confucius");
-        q.setText("The superior man is modest in his speech, but exceeds in his actions.");
-        q.setAuthor(a);
-        return q; 
-    }
+
+	@Autowired
+	private QuoteService quoteService;
+
+	@Autowired
+	private AuthorService authorService;
+
+	@RequestMapping("/api/quote/random")
+	public Quote random() {
+		return quoteService.randomQuote();
+	}
+
+	@RequestMapping(value = "/api/quote/random/{id}")
+	public ArrayList<Quote> random(@PathVariable("id") int id) {
+		return quoteService.authorQuotes(id);
+	}
+
+	@RequestMapping(value = "/api/quote/author/{id}")
+	public ArrayList<Quote> author(@PathVariable("id") int id) {
+		return quoteService.authorQuotes(id);
+	}
+
+	@RequestMapping(value = "/api/quote", method = RequestMethod.POST)
+	public void saveQuote(@RequestBody Quote quote) {
+		System.out.println(quote);
+
+		Author a = authorService.findByName(quote.getAuthor().getName());
+
+		if (a == null) {
+			System.out.println("Saving author");
+			authorService.save(quote.getAuthor());
+		} else {
+			quote.setAuthor(a);
+		}
+
+		System.out.println("Saving quote");
+		quoteService.save(quote);
+	}
+
+	public Quote fallback() {
+		Quote q = new Quote();
+		Author a = new Author("Confucius");
+		q.setText("The superior man is modest in his speech, but exceeds in his actions.");
+		q.setAuthor(a);
+		return q;
+	}
 }

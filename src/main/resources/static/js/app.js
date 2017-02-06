@@ -5,7 +5,6 @@ var app = angular.module('app', [
     'ngResource',
     'app.services',
     'app.controllers'
-
 ]);
 
 app.config(function($urlRouterProvider, $stateProvider) {
@@ -24,7 +23,7 @@ app.config(function($urlRouterProvider, $stateProvider) {
             controller: "SaveQuoteCtrl"
         })
         .state("author", {
-            url: "/author",
+            url: "/author?authorid",
             templateUrl : "templates/author.html",
             controller: "AuthorQuotesCtrl"
         });

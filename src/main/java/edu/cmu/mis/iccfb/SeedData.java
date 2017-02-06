@@ -51,7 +51,8 @@ public class SeedData {
         //Quote q4 = new Quote(
         //        "Look deep into nature, and then you will understand everything better.", 
         //        "https://www.brainyquotes.com/quotes/authors/a/albert_einstein.html", 
-        //        a3);
+        //       a3);
+        
         //Quote q5 = new Quote(
         //        "Try not to become a man of success, but rather try to become a man of value.", 
         //        "https://www.brainyquotes.com/quotes/authors/a/albert_einstein.html", 

@@ -29,7 +29,13 @@ public class Quote {
         this.source = source;
         this.author = author;
     }
-
+    
+    public Quote(String text, String source, Long authorID) {
+        this.text = text;
+        this.source = source;
+        this.id = authorID;
+    }
+    
     @Override
     public String toString() {
         return String.format("Quote[id=%d, text='%s', by='%s']", this.id, this.text, this.author.getName());

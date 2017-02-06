@@ -11,10 +11,5 @@ angular.module('app.services', ['ngResource'])
 	});
 })
 .factory('AuthorService', function($resource) {
-	return $resource('/api/author/:id', {id:'@_id'},{
-		author: {
-			method: 'GET',
-			url: '/api/quote/author'
-		}
-	});
+	return $resource('/api/quote/author/:id',{id:'@_id'});
 });
