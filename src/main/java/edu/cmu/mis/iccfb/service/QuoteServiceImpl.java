@@ -1,6 +1,7 @@
 package edu.cmu.mis.iccfb.service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +30,9 @@ public class QuoteServiceImpl implements QuoteServiceCustom {
     @Override
     public ArrayList<Quote> authorQuotes(long id){
     	ArrayList<Quote> quotes = new ArrayList<Quote>();
+    	Iterable<Quote> allQuotes = quoteService.findAll();
     	
-    	for(Quote q: this.quoteService.findAll()){
+    	for(Quote q: allQuotes){
     		if(q.getAuthor().getId().longValue() == id){
     			quotes.add(q);
     		}

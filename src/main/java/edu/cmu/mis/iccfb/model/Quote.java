@@ -17,8 +17,7 @@ public class Quote {
     private String source;
     
     
-    @ManyToOne(optional = false)
-    @NaturalId
+    @ManyToOne(optional = false)    
     private Author author;
     
 
